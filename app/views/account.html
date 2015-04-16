@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <!--[if IE]>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <![endif]-->
+        <title>Bootstrap Registration Page</title>
+        <!-- BOOTSTRAP CORE STYLE CSS -->
+        <link href="css/bootstrap.css" rel="stylesheet" />
+        <!-- FONTAWESOME STYLE CSS -->
+        <link href="css/font-awesome.min.css" rel="stylesheet" />
+        <!-- CUSTOM STYLE CSS -->
+        <link href="css/style.css" rel="stylesheet" />    
+        <!-- GOOGLE FONT -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <div class="page-header">
+                        <h1>
+                            Example page header <small>Subtext for header</small>
+                        </h1>
+                    </div>
+                    <h3>
+                        h3. Lorem ipsum dolor sit amet.
+                    </h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th> #</th>
+                                <th>Username</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Address</th>
+                                <th>Email</th>
+                                <th>Connect</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% set i = 1 %}
+                            {% for user in reg_users %}
+                            {% set i = i+1 %}
+                            {% if user.username != logged_user %}
+                            <tr>
+                                <td>{{i}}</td>
+                                <td>{{user.username}}</td>
+                                <td>{{user.first_name}}</td>
+                                <td>{{user.last_name}}</td>
+                                <td>{{user.address}}</td>
+                                <td>{{user.email}}</td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-md-8 column">
+                    <h3>
+                        h3. Lorem ipsum dolor sit amet.
+                    </h3>
+                    <form role="form" method="post" action="">
+                        <br/>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
+                            <input type="text" class="form-control" placeholder="First Name" name="first_name" value="{{user_info.first_name}}"/>
+                        </div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
+                            <input type="text" class="form-control" placeholder="Last Name" name="last_name" value="{{user_info.last_name}}"/>
+                        </div>
+
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
+                            <input type="text" class="form-control" placeholder="Address" name="address" value="{{user_info.address}}"/>
+                        </div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon">@</span>
+                            <input type="text" class="form-control" placeholder="Your Email" name="email" value="{{user_info.email}}"/>
+                        </div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                            <input type="password" class="form-control" placeholder="Enter Password" name="password"/>
+                        </div>
+
+                        <input type="submit" class="btn btn-success btn-block" value="Update" name="update">
+
+                    </form>
+                </div>
+                <div class="col-md-4 column">
+                    <h3>
+                        h3. Lorem ipsum dolor sit amet.
+                    </h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    Product
+                                </th>
+                                <th>
+                                    Payment Taken
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    1
+                                </td>
+                                <td>
+                                    TB - Monthly
+                                </td>
+                                <td>
+                                    01/04/2012
+                                </td>
+                                <td>
+                                    Default
+                                </td>
+                            </tr>
+                            <tr class="active">
+                                <td>
+                                    1
+                                </td>
+                                <td>
+                                    TB - Monthly
+                                </td>
+                                <td>
+                                    01/04/2012
+                                </td>
+                                <td>
+                                    Approved
+                                </td>
+                            </tr>
+                            <tr class="success">
+                                <td>
+                                    2
+                                </td>
+                                <td>
+                                    TB - Monthly
+                                </td>
+                                <td>
+                                    02/04/2012
+                                </td>
+                                <td>
+                                    Declined
+                                </td>
+                            </tr>
+                            <tr class="warning">
+                                <td>
+                                    3
+                                </td>
+                                <td>
+                                    TB - Monthly
+                                </td>
+                                <td>
+                                    03/04/2012
+                                </td>
+                                <td>
+                                    Pending
+                                </td>
+                            </tr>
+                            <tr class="danger">
+                                <td>
+                                    4
+                                </td>
+                                <td>
+                                    TB - Monthly
+                                </td>
+                                <td>
+                                    04/04/2012
+                                </td>
+                                <td>
+                                    Call in to confirm
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+        <!-- CORE JQUERY  -->
+        <script src="js/jquery-1.10.2.js"></script>
+        <!-- BOOTSTRAP SCRIPTS  -->
+        <script src="js/bootstrap.js"></script>
+
+    </body>
+</html>

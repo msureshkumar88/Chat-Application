@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/chatroom.css" rel="stylesheet"/>
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
+        <script src="js/chatroom.js"></script>
+    </head>
+    <body>
+        <ul class="pages">
+            <li class="chat page" data-user="{{username}}">
+                <div class="chatArea">
+                    <ul class="messages"></ul>
+                </div>
+                <input class="inputMessage" placeholder="Type here..."/>
+            </li>
+            <li class="login page">
+                <div class="form">
+                    <h3 class="title">What's your nickname?</h3>
+                    <input class="usernameInput" type="text" maxlength="14" />
+                </div>
+            </li>
+        </ul>
+
+        <script>
+            var socket = io.connect('http://localhost:4000/chatroom');
+            socket.on('news', function (data) {
+                console.log(data);
+                socket.emit('my other event', {my: 'data'});
+            });
+        </script>
+    </body>
+</html>

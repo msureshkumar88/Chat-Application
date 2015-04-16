@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+
+<body>
+<span href="#" class="button" id="toggle-login">Log in</span>
+
+<div id="login">
+    <ul>{% autoescape false %}{{ err }}{% endautoescape %}</ul>
+  <div id="triangle"></div>
+  <h1>Log in</h1>
+  <form method="post" action="login">
+    <input type="text" name="username" placeholder="Username" />
+    <input type="password" name="password" placeholder="Password" />
+    Remember me : <input type="checkbox" name="remember_me" value="Remember me"/>
+    <input type="submit" name="submit" value="Log in" />
+  </form>
+</div>
+
+</body>
+
+</html>
